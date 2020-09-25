@@ -47,6 +47,7 @@ export function pitch(req) {
   } else if (this.target === 'webworker') {
     source.push(`mocha.setup({"ui" : "bdd", "reporter": "json"});`);
     source.push(`global.location = { search: '' };`);
+    source.push(`global.origin = '';`);
     source.push(`require(${JSON.stringify(`!!${req}`)})`);
   } else {
     throw new Error(`Unsupported target environment ${this.target}`);
